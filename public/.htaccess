@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Jika file atau direktori fisik ada (seperti file css, js, gambar), layani langsung
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Selain itu, arahkan ke index.php
+RewriteRule ^ index.php [QSA,L]
