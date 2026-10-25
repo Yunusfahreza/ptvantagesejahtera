@@ -1,6 +1,3 @@
-/config/config.php
-/uploads/*
-!/uploads/.gitkeep
 /vendor/
 composer.lock
 *.log
