@@ -1,4 +1,397 @@
 %PDF-1.4
-1 0 obj<</Type/Catalog>>endobj
-trailer<</Root 1 0 R>>
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 595 842]
+  /Resources <<
+    /Font <<
+      /F1 4 0 R
+      /F2 5 0 R
+      /F3 6 0 R
+    >>
+  >>
+  /Contents 8 0 R
+>>
+endobj
+8 0 obj
+<< /Length 5935 >>
+stream
+0.18 0.28 0.52 rg
+40.00 770.00 515.00 45.00 re f
+BT
+/F1 12.00 Tf
+1.00 1.00 1.00 rg
+1 0 0 1 55.00 795.00 Tm
+(SMAN 10 GARUT - LABORATORIUM FISIKA & SAINS TERPADU) Tj
+ET
+BT
+/F2 9.00 Tf
+0.90 0.93 1.00 rg
+1 0 0 1 55.00 780.00 Tm
+(Panduan Praktikum: Dinamika Gerak Lurus & Verifikasi Hukum Newton) Tj
+ET
+BT
+/F1 15.00 Tf
+0.15 0.25 0.45 rg
+1 0 0 1 40.00 735.00 Tm
+(PANDUAN PRAKTIKUM: VERIFIKASI HUKUM II NEWTON) Tj
+ET
+BT
+/F3 9.00 Tf
+0.40 0.40 0.40 rg
+1 0 0 1 40.00 720.00 Tm
+(Instruktur Lab: Budi Hartono, S.Si., M.Pd. | Kelas X-1 & X-2) Tj
+ET
+0.18 0.28 0.52 RG
+1.50 w
+40.00 712.00 m 555.00 712.00 l s
+0.95 0.96 0.99 rg
+40.00 630.00 515.00 70.00 re f
+0.80 0.85 0.95 RG
+1.00 w
+40.00 630.00 515.00 70.00 re s
+BT
+/F1 11.00 Tf
+0.18 0.28 0.52 rg
+1 0 0 1 50.00 685.00 Tm
+(A. Tujuan Praktikum & Hipotesis Percobaan) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 670.00 Tm
+(1. Menyelidiki hubungan antara gaya \(F\) yang bekerja pada benda dengan percepatan \(a\).) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 655.00 Tm
+(2. Menyelidiki hubungan antara massa benda \(m\) dengan percepatan yang dihasilkan \(a\).) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 640.00 Tm
+(3. Menentukan nilai konstanta percepatan gravitasi lokal di Laboratorium Fisika Garut.) Tj
+ET
+BT
+/F1 12.00 Tf
+0.10 0.10 0.10 rg
+1 0 0 1 40.00 605.00 Tm
+(B. Dasar Teori: Persamaan Dinamika Newton II) Tj
+ET
+BT
+/F2 9.50 Tf
+0.25 0.25 0.25 rg
+1 0 0 1 40.00 588.00 Tm
+(Percepatan yang dialami suatu benda sebanding dengan resultan gaya dan berbanding terbalik massa:) Tj
+ET
+0.97 0.97 0.98 rg
+60.00 548.00 475.00 28.00 re f
+0.85 0.85 0.90 RG
+0.80 w
+60.00 548.00 475.00 28.00 re s
+BT
+/F1 11.00 Tf
+0.18 0.28 0.52 rg
+1 0 0 1 75.00 558.00 Tm
+(Sigma F = m x a   ->   a = Sigma F / m) Tj
+ET
+BT
+/F1 12.00 Tf
+0.10 0.10 0.10 rg
+1 0 0 1 40.00 520.00 Tm
+(C. Alat dan Bahan Percobaan) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 502.00 Tm
+(1. Rel Presisi \(Track\) dan Kereta Dinamika \(Smart Cart\) beroda rendah gesekan.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 484.00 Tm
+(2. Ticker Timer dengan pita ketik karbon berfrekuensi 50 Hz.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 466.00 Tm
+(3. Beban Gantung variabel: 50 gram, 100 gram, 150 gram, dan 200 gram.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 448.00 Tm
+(4. Tali nilon ringan tidak elastis dan katrol meja presisi.) Tj
+ET
+BT
+/F1 12.00 Tf
+0.10 0.10 0.10 rg
+1 0 0 1 40.00 420.00 Tm
+(D. Langkah-Langkah Prosedur Kerja) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 400.00 Tm
+(1. Rakit lintasan rel pada posisi datar sempurna menggunakan waterpass.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 382.00 Tm
+(2. Hubungkan kereta dinamika dengan beban gantung melewati katrol di ujung rel.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 364.00 Tm
+(3. Pasang pita ketik pada ticker timer, lalu nyalakan catu daya 12V AC.) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 346.00 Tm
+(4. Lepaskan kereta sehingga bergerak dipercepat, potong pita per 5 ketikan \(0,1 s\).) Tj
+ET
+BT
+/F2 9.50 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 50.00 328.00 Tm
+(5. Hitung kecepatan awal \(v0\), kecepatan akhir \(vt\), dan percepatan rata-rata \(a\).) Tj
+ET
+BT
+/F1 12.00 Tf
+0.10 0.10 0.10 rg
+1 0 0 1 40.00 300.00 Tm
+(E. Tabel Format Data Pengamatan Praktikum) Tj
+ET
+0.99 0.99 0.99 rg
+40.00 160.00 515.00 125.00 re f
+0.80 0.80 0.80 RG
+1.00 w
+40.00 160.00 515.00 125.00 re s
+0.80 0.80 0.80 RG
+1.00 w
+40.00 260.00 m 555.00 260.00 l s
+BT
+/F1 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 45.00 268.00 Tm
+(Percobaan) Tj
+ET
+BT
+/F1 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 115.00 268.00 Tm
+(Massa Kereta \(kg\)) Tj
+ET
+BT
+/F1 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 225.00 268.00 Tm
+(Massa Beban \(kg\)) Tj
+ET
+BT
+/F1 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 345.00 268.00 Tm
+(Gaya Tarik F \(N\)) Tj
+ET
+BT
+/F1 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 455.00 268.00 Tm
+(Percepatan a \(m/s2\)) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 242.00 Tm
+(1) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 135.00 242.00 Tm
+(0,50 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 245.00 242.00 Tm
+(0,05 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 365.00 242.00 Tm
+(0,49 N) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 475.00 242.00 Tm
+(0,89 m/s2) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 218.00 Tm
+(2) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 135.00 218.00 Tm
+(0,50 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 245.00 218.00 Tm
+(0,10 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 365.00 218.00 Tm
+(0,98 N) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 475.00 218.00 Tm
+(1,63 m/s2) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 194.00 Tm
+(3) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 135.00 194.00 Tm
+(0,50 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 245.00 194.00 Tm
+(0,15 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 365.00 194.00 Tm
+(1,47 N) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 475.00 194.00 Tm
+(2,26 m/s2) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 55.00 170.00 Tm
+(4) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 135.00 170.00 Tm
+(0,50 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 245.00 170.00 Tm
+(0,20 kg) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 365.00 170.00 Tm
+(1,96 N) Tj
+ET
+BT
+/F2 9.00 Tf
+0.20 0.20 0.20 rg
+1 0 0 1 475.00 170.00 Tm
+(2,80 m/s2) Tj
+ET
+BT
+/F1 9.50 Tf
+0.18 0.28 0.52 rg
+1 0 0 1 40.00 135.00 Tm
+(F. Tugas Akhir: Susun grafik F vs a dan simpulkan kecocokan dengan Hukum II Newton.) Tj
+ET
+BT
+/F2 9.00 Tf
+0.35 0.35 0.35 rg
+1 0 0 1 40.00 120.00 Tm
+(Format Laporan: Judul, Tujuan, Alat, Prosedur, Data, Grafik, Pembahasan, Kesimpulan \(PDF\).) Tj
+ET
+0.80 0.80 0.80 RG
+0.80 w
+40.00 60.00 m 555.00 60.00 l s
+BT
+/F3 8.00 Tf
+0.50 0.50 0.50 rg
+1 0 0 1 40.00 48.00 Tm
+(SMAN 10 Garut | Petunjuk Praktikum Fisika \(Verifikasi Hukum II Newton\)) Tj
+ET
+BT
+/F2 8.00 Tf
+0.50 0.50 0.50 rg
+1 0 0 1 485.00 48.00 Tm
+(Halaman 1 dari 1) Tj
+ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000142 00000 n 
+0000000217 00000 n 
+0000000287 00000 n 
+0000000365 00000 n 
+0000000549 00000 n 
+trailer
+<<
+  /Size 9
+  /Root 1 0 R
+>>
+startxref
+6536
 %%EOF
