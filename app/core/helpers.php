@@ -41,7 +41,13 @@ if (!function_exists('base_url')) {
         $host  = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
         $dir   = rtrim(str_replace(chr(92), '/', dirname((string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php'))), '/');
 
-        return $base = $skema . '://' . $host . ($dir === '/' ? '' : $dir);
+        if ($dir === '.' || $dir === '/') {
+            $dir = '';
+        } elseif ($dir !== '' && !str_starts_with($dir, '/')) {
+            $dir = '/' . $dir;
+        }
+
+        return $base = $skema . '://' . $host . $dir;
     }
 }
 

@@ -1,21 +1,23 @@
 <div class="mb-4">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-1">
-            <li class="breadcrumb-item"><a href="<?= e(url('/siswa/mapel')) ?>" class="text-white-50">Mata Pelajaran</a></li>
-            <li class="breadcrumb-item"><a href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>" class="text-white-50"><?= e($video['mapel_nama']) ?></a></li>
-            <li class="breadcrumb-item active text-white" aria-current="page"><?= e($video['judul']) ?></li>
+        <ol class="breadcrumb page-breadcrumb mb-1">
+            <li class="breadcrumb-item"><a href="<?= e(url('/siswa/mapel')) ?>">Mata Pelajaran</a></li>
+            <li class="breadcrumb-item"><a href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>"><?= e($video['mapel_nama']) ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page" style="color: var(--slate-primary);"><?= e($video['judul']) ?></li>
         </ol>
     </nav>
-    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <h1 class="h4 mb-0 text-white fw-bold"><?= e($video['judul']) ?></h1>
-        <a class="btn btn-outline-secondary btn-sm" href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>">Kembali ke Daftar</a>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <h1 class="page-title mb-0"><?= e($video['judul']) ?></h1>
+        <a class="btn btn-outline-secondary btn-sm px-3 py-1.5" href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>">
+            &larr; Kembali ke Daftar
+        </a>
     </div>
 </div>
 
 <div class="row g-4">
-    <div class="col-lg-9">
-        <div class="card shadow-sm border-0 overflow-hidden mb-3">
-            <div class="ratio ratio-16x9 bg-black">
+    <div class="col-12 col-lg-8 col-xl-9">
+        <div class="card shadow-sm border-0 overflow-hidden mb-4">
+            <div class="ratio ratio-16x9" style="background: #000000; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
                 <?php if ($video['tipe'] === 'youtube'): ?>
                     <iframe src="<?= e($video['url_embed']) ?>" title="<?= e($video['judul']) ?>"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -30,49 +32,52 @@
                     </video>
                 <?php endif; ?>
             </div>
-            <div class="card-body p-4">
-                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary-subtle gap-2">
-                    <div>
-                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle me-2">
+            
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom gap-2" style="border-color: rgba(226, 232, 240, 0.8) !important;">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge px-2.5 py-1.5 fw-bold" style="background: rgba(37, 99, 235, 0.08); color: var(--accent-sapphire); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 8px;">
                             <?= e($video['mapel_nama']) ?> (<?= e($video['mapel_kode']) ?>)
                         </span>
-                        <span class="small text-white-50">Pengajar: <?= e($video['guru_nama']) ?></span>
+                        <span class="small fw-semibold" style="color: var(--slate-secondary);">Pengajar: <?= e($video['guru_nama']) ?></span>
                     </div>
-                    <div class="small text-white-50">
-                        Diunggah pada <?= e(tanggal_id($video['created_at'])) ?>
+                    <div class="small fw-semibold" style="color: var(--slate-muted); font-size: 0.78rem;">
+                        Diunggah: <?= e(tanggal_id($video['created_at'])) ?>
                         <?php if (($video['durasi'] ?? '') !== ''): ?>
-                            &bull; ⏱️ <?= e($video['durasi']) ?>
+                            &bull; â ±ï¸  <?= e($video['durasi']) ?>
                         <?php endif; ?>
                     </div>
                 </div>
 
-                <h6 class="text-white fw-bold mb-2">Deskripsi & Catatan Materi</h6>
+                <h6 class="fw-bold mb-2" style="color: var(--slate-primary);">Deskripsi & Catatan Materi Pembelajaran</h6>
                 <?php if (($video['deskripsi'] ?? '') !== ''): ?>
-                    <div class="text-white-50 small lh-lg" style="white-space: pre-wrap;"><?= e($video['deskripsi']) ?></div>
+                    <div class="small lh-lg" style="color: var(--slate-secondary); white-space: pre-wrap; font-size: 0.88rem;"><?= e($video['deskripsi']) ?></div>
                 <?php else: ?>
-                    <p class="text-white-50 small mb-0 fst-italic">Tidak ada deskripsi tambahan.</p>
+                    <p class="small mb-0 fst-italic" style="color: var(--slate-muted);">Tidak ada deskripsi tambahan dari pengajar.</p>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-3">
+    <div class="col-12 col-lg-4 col-xl-3">
         <div class="card shadow-sm border-0 mb-3">
-            <div class="card-body p-3">
-                <h6 class="text-white fw-bold mb-3 d-flex align-items-center gap-2">
-                    <span>💡</span> Tips Belajar Mandiri
-                </h6>
-                <ul class="text-white-50 small ps-3 mb-0">
-                    <li class="mb-2">Gunakan headphone agar fokus mendengarkan penjelasan.</li>
-                    <li class="mb-2">Pause video saat guru menulis rumus atau poin penting.</li>
-                    <li class="mb-2">Buka menu <strong>Catatan Belajar</strong> untuk mencatat inti pembahasan.</li>
-                    <li>Uji pemahaman dengan mengerjakan Kuis & Tugas terkait.</li>
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="squircle-icon squircle-icon-amber" style="width: 32px; height: 32px; border-radius: 8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <h6 class="fw-bold mb-0" style="color: var(--slate-primary); font-size: 0.92rem;">Tips Belajar Mandiri</h6>
+                </div>
+                
+                <ul class="small ps-3 mb-0 d-flex flex-column gap-2" style="color: var(--slate-secondary);">
+                    <li>Gunakan earphone agar fokus mendengarkan pemaparan guru.</li>
+                    <li>Jeda video saat guru menerangkan penurunan rumus atau konsep kunci.</li>
+                    <li>Buka menu <strong style="color: var(--slate-primary);">Catatan Belajar</strong> untuk merekap intisari video.</li>
+                    <li>Uji kemampuan materi ini dengan menyelesaikan kuis & tugas terkait.</li>
                 </ul>
             </div>
         </div>
-        <a href="<?= e(url('/siswa/catatan/form')) ?>" class="btn btn-outline-info w-100 btn-sm d-flex align-items-center justify-content-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            <span>Tulis Catatan untuk Video Ini</span>
-        </a>
     </div>
 </div>

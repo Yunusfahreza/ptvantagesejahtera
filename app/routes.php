@@ -12,6 +12,7 @@
 // --- Publik & umum -------------------------------------------------------
 
 $router->get('/',          'HomeController@index',          ['*']);
+$router->get('/glass',     'HomeController@glass',          ['*']);
 $router->get('/login',     'AuthController@formLogin',      ['*']);
 $router->post('/login',    'AuthController@login',          ['*']);
 $router->post('/logout',   'AuthController@logout',         ['@']);
