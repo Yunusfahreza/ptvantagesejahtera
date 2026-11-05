@@ -198,6 +198,36 @@
     }
 
     /**
+     * 8. Mobile Sidebar Drawer Controller
+     */
+    function initMobileSidebar() {
+        var sidebar = document.getElementById('sidebarMenu');
+        var backdrop = document.getElementById('sidebarBackdrop');
+        if (!sidebar || !backdrop) return;
+
+        function closeSidebar() {
+            sidebar.classList.remove('show');
+            backdrop.classList.remove('show');
+        }
+
+        // Close on ESC key press
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape' && sidebar.classList.contains('show')) {
+                closeSidebar();
+            }
+        });
+
+        // Close on clicking any sidebar navigation link
+        sidebar.querySelectorAll('.spatial-sidebar-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 992) {
+                    closeSidebar();
+                }
+            });
+        });
+    }
+
+    /**
      * Initialize on DOM Ready
      */
     document.addEventListener('DOMContentLoaded', function () {
@@ -208,5 +238,6 @@
         initFileInputs();
         initConfirmSubmits();
         initTooltips();
+        initMobileSidebar();
     });
 }());

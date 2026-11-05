@@ -134,11 +134,11 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
     <!-- ── RIGHT CONTENT (Area Konten & Topbar Kapsul Melayang) ─────────────── -->
     <div class="spatial-main-wrapper <?= $user === null ? 'spatial-main-full' : '' ?>">
         <!-- Floating Pill Topbar (Matching the Reference Image Controls) -->
-        <header class="spatial-topbar d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <header class="spatial-topbar d-flex flex-wrap align-items-center justify-content-between gap-2 gap-sm-3">
             <!-- Left Side: Title & Date Selector -->
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-2 gap-sm-3 overflow-hidden">
                 <?php if ($user !== null): ?>
-                    <button class="btn btn-sm spatial-mobile-toggle d-lg-none" type="button"
+                    <button class="btn btn-sm spatial-mobile-toggle d-lg-none flex-shrink-0" type="button"
                             onclick="document.getElementById('sidebarMenu').classList.add('show'); document.getElementById('sidebarBackdrop').classList.add('show');"
                             aria-label="Buka Menu">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -149,8 +149,8 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
                     </button>
                 <?php endif; ?>
                 
-                <div>
-                    <h1 class="h4 fw-bold mb-0" style="color: var(--slate-primary); letter-spacing: -0.02em;">
+                <div class="overflow-hidden">
+                    <h1 class="h5 fw-bold mb-0 text-truncate" style="color: var(--slate-primary); letter-spacing: -0.02em;">
                         <?= e($judul ?? Config::get('app.nama')) ?>
                     </h1>
                 </div>
@@ -176,10 +176,10 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
             </div>
 
             <!-- Right Side: Floating Control Capsules -->
-            <div class="d-flex align-items-center gap-2">
+            <div class="d-flex align-items-center gap-2 flex-shrink-0">
                 <!-- Video Call / Pembelajaran Pill (Dark Capsule like image) -->
                 <?php if ($user !== null): ?>
-                    <a href="<?= e(url('/' . ($peran ?? 'siswa') . '/video')) ?>" class="control-capsule-btn control-capsule-dark d-none d-sm-inline-flex" title="Video Pembelajaran">
+                    <a href="<?= e(url('/' . ($peran ?? 'siswa') . '/video')) ?>" class="control-capsule-btn control-capsule-dark d-none d-md-inline-flex" title="Video Pembelajaran">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="23 7 16 12 23 17 23 7"/>
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>

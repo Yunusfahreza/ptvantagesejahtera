@@ -239,8 +239,8 @@
                 </p>
             </div>
 
-            <!-- Segmented Pill Buttons (Matching macOS / VisionOS Reference Style) -->
-            <div class="d-inline-flex p-1 rounded-pill" style="background: rgba(15, 23, 42, 0.06); border: 1px solid rgba(15, 23, 42, 0.08);">
+            <!-- Segmented Pill Buttons (Matching macOS / VisionOS Reference Style, Responsive Scroll) -->
+            <div class="d-inline-flex p-1 rounded-pill chart-tab-group" style="background: rgba(15, 23, 42, 0.06); border: 1px solid rgba(15, 23, 42, 0.08);">
                 <button type="button" class="btn btn-sm btn-chart-tab active" data-chart-mode="mapel" onclick="switchChartMode('mapel')">
                     Performa Mapel
                 </button>

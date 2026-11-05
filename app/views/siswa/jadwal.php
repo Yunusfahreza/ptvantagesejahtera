@@ -29,15 +29,15 @@ $hariIni = match ((int) date('N')) {
         <p class="page-subtitle">Rangkaian jadwal belajar mata pelajaran kelas Anda setiap hari</p>
     </div>
 
-    <!-- Filter Hari Navigation Pills -->
-    <div class="filter-nav-group d-none d-md-inline-flex">
+    <!-- Filter Hari Navigation Pills (Smooth horizontal scroll on mobile) -->
+    <div class="filter-nav-group d-inline-flex">
         <button type="button" class="filter-nav-pill active" data-filter-target="#jadwalContainer" data-filter-value="all">
             Semua Hari
         </button>
         <?php foreach ($daftarHari as $kodeHari => $namaHari): ?>
             <button type="button" class="filter-nav-pill <?= $kodeHari === $hariIni ? 'fw-bold' : '' ?>" 
                     data-filter-target="#jadwalContainer" data-filter-value="<?= e($kodeHari) ?>">
-                <?= e($namaHari) ?> <?= $kodeHari === $hariIni ? 'â€¢' : '' ?>
+                <?= e($namaHari) ?> <?= $kodeHari === $hariIni ? '&bull;' : '' ?>
             </button>
         <?php endforeach; ?>
     </div>

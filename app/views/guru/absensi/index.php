@@ -72,7 +72,7 @@
             </div>
             <div class="d-flex gap-2">
                 <button type="button" class="btn btn-sm btn-outline-success px-3 py-1 fw-bold" onclick="setSemua('hadir')">
-                    âœ“ Tandai Semua Hadir
+                    &#10003; Tandai Semua Hadir
                 </button>
             </div>
         </div>

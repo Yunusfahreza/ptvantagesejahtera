@@ -1076,45 +1076,7 @@ hr {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
 }
 
-/* ── 20. Responsive ──────────────────────────────────────────────────── */
-@media (max-width: 991.98px) {
-    .spatial-sidebar {
-        transform: translateX(-100%);
-    }
-
-    .spatial-sidebar.show {
-        transform: translateX(0);
-        box-shadow: 10px 0 50px rgba(31, 38, 135, 0.2) !important;
-    }
-
-    .spatial-main-wrapper {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .spatial-sidebar-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(15, 23, 42, 0.30);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-        z-index: 1015;
-        display: none;
-    }
-
-    .spatial-sidebar-backdrop.show {
-        display: block;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .card, .spatial-panel, .glass-card {
-        border-radius: var(--radius-md) !important;
-    }
-    .spatial-topbar {
-        padding: 0 1rem;
-    }
-}
+/* ── 20. Responsive (See Consolidated Mobile Engine at Bottom of File) ─ */
 
 /* ── 21. Print ───────────────────────────────────────────────────────── */
 @media print {
@@ -1536,46 +1498,6 @@ body {
         border-radius: 4px;
     }
 
-    /* Active Nav Item: Solid Black/Deep Navy Capsule (Ref Image Exact) */
-    .spatial-sidebar-link {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.7rem !important;
-        border-radius: 9999px !important;
-        padding: 0.55rem 0.95rem !important;
-        margin-bottom: 3px !important;
-        font-weight: 600 !important;
-        font-size: 0.81rem !important;
-        color: var(--slate-secondary) !important;
-        text-decoration: none !important;
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        border: 1.5px solid transparent !important;
-    }
-
-    .spatial-sidebar-link:hover {
-        background: rgba(255, 255, 255, 0.85) !important;
-        color: var(--slate-primary) !important;
-        transform: translateX(2px) !important;
-    }
-
-    .spatial-sidebar-link.active {
-        background: #0f172a !important;
-        color: #ffffff !important;
-        border-radius: 9999px !important;
-        font-weight: 700 !important;
-        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25) !important;
-        border-color: #0f172a !important;
-    }
-
-    .spatial-sidebar-link.active .sidebar-icon {
-        color: #ffffff !important;
-        opacity: 1 !important;
-    }
-
-    .spatial-sidebar-link.active .sidebar-active-glow {
-        display: none !important;
-    }
-
     .spatial-sidebar-footer {
         flex-shrink: 0 !important;
         padding: 0.75rem 0.3rem 0 !important;
@@ -1606,6 +1528,70 @@ body {
         backdrop-filter: none !important;
         position: relative !important;
     }
+}
+
+/* ==========================================================================
+   SPATIAL SIDEBAR PILL CAPSULES (DESKTOP & MOBILE CONSISTENT STYLING)
+   ========================================================================== */
+.spatial-sidebar-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.7rem !important;
+    border-radius: 9999px !important;
+    padding: 0.55rem 0.95rem !important;
+    margin-bottom: 4px !important;
+    font-weight: 600 !important;
+    font-size: 0.81rem !important;
+    color: var(--slate-secondary) !important;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: 1.5px solid transparent !important;
+}
+
+.spatial-sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: var(--slate-primary) !important;
+    transform: translateX(2px) !important;
+}
+
+.spatial-sidebar-link.active {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25) !important;
+    border-color: #0f172a !important;
+}
+
+.spatial-sidebar-link.active .sidebar-icon {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.spatial-sidebar-link.active .sidebar-active-glow {
+    display: none !important;
+}
+
+.spatial-mobile-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.95) !important;
+    color: #0f172a !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05) !important;
+    padding: 0 !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.spatial-mobile-toggle:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
 }
 
 /* Translucent Cards with 3D Depth Underneath */
@@ -1819,4 +1805,285 @@ body {
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
     color: #ffffff;
     padding: 24px;
+}
+
+/* ==========================================================================
+   GANTT CHART TIMELINE & TOUCH SCROLL HELPERS
+   ========================================================================== */
+.gantt-timeline-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+.gantt-timeline-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.gantt-timeline-container::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.4);
+    border-radius: 4px;
+}
+
+.gantt-timeline-inner {
+    min-width: 520px;
+}
+
+.chart-tab-group {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.chart-tab-group::-webkit-scrollbar {
+    display: none;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE ENGINE (ANDROID & IOS ACCREDITED)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    /* Prevent document level horizontal overflow */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    body {
+        padding: 0 !important;
+        background-attachment: scroll !important;
+    }
+
+    .antigravity-backdrop {
+        position: fixed;
+        inset: 0;
+        background-attachment: scroll !important;
+    }
+
+    /* Spatial Shell on Mobile: Seamless fluid container with comfortable margin */
+    .spatial-app-shell {
+        display: block !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+        padding: 12px 14px 32px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .spatial-main-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+        overflow-y: visible !important;
+        overflow-x: hidden !important;
+        max-height: none !important;
+    }
+
+    /* Floating Pill Topbar on Mobile */
+    .spatial-topbar {
+        height: auto !important;
+        min-height: 56px !important;
+        padding: 10px 14px !important;
+        margin-bottom: 16px !important;
+        border-radius: 20px !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        backdrop-filter: blur(20px) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05) !important;
+        position: relative !important;
+        top: 0 !important;
+        gap: 8px !important;
+    }
+
+    .spatial-topbar h1 {
+        font-size: 1.05rem !important;
+    }
+
+    /* Off-canvas Sliding Sidebar Drawer on Mobile */
+    .spatial-sidebar {
+        width: 285px !important;
+        min-width: 285px !important;
+        max-width: 84vw !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1050 !important;
+        border-radius: 0 28px 28px 0 !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        -webkit-backdrop-filter: blur(28px) !important;
+        backdrop-filter: blur(28px) !important;
+        border-right: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+        box-shadow: 20px 0 60px rgba(15, 23, 42, 0.25) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 16px 12px 14px !important;
+        margin: 0 !important;
+        transform: translateX(-100%);
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .spatial-sidebar.show {
+        transform: translateX(0) !important;
+    }
+
+    .spatial-sidebar-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-bottom: 0.9rem !important;
+        border-bottom: 1.5px solid rgba(226, 232, 240, 0.7) !important;
+    }
+
+    .spatial-sidebar-nav {
+        flex-grow: 1 !important;
+        overflow-y: auto !important;
+        padding: 0.6rem 0.2rem !important;
+    }
+
+    .spatial-sidebar-footer {
+        padding-top: 0.8rem !important;
+        border-top: 1.5px solid rgba(226, 232, 240, 0.7) !important;
+    }
+
+    .spatial-sidebar-backdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(15, 23, 42, 0.45) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        backdrop-filter: blur(6px) !important;
+        z-index: 1045 !important;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .spatial-sidebar-backdrop.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .spatial-app-shell {
+        padding: 8px 8px 24px !important;
+    }
+
+    .spatial-topbar {
+        padding: 8px 10px !important;
+        border-radius: 18px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Cards comfortably rounded on small screens */
+    .card,
+    .gantt-chart-card,
+    .preview-dark-card,
+    .team-dark-card,
+    .bento-stat-card {
+        border-radius: 20px !important;
+        padding: 14px !important;
+    }
+
+    /* Control capsule buttons scale down neatly */
+    .control-capsule-btn {
+        padding: 6px 12px !important;
+        font-size: 0.74rem !important;
+        gap: 6px !important;
+    }
+
+    .icon-circle-capsule {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    /* Search Input Pill takes full width when wrapped */
+    .search-pill-wrapper {
+        max-width: 100% !important;
+    }
+
+    /* Mobile Typography Scaling */
+    .page-title {
+        font-size: 1.25rem !important;
+    }
+    .page-subtitle {
+        font-size: 0.76rem !important;
+    }
+    h2.h3, .h3 {
+        font-size: 1.15rem !important;
+    }
+    .display-5 {
+        font-size: 2.1rem !important;
+    }
+    .display-6 {
+        font-size: 1.75rem !important;
+    }
+
+    /* Bento Stat Numbers */
+    .bento-stat-card {
+        padding: 12px 10px !important;
+    }
+    .bento-stat-number {
+        font-size: 1.35rem !important;
+    }
+    .bento-stat-label {
+        font-size: 0.64rem !important;
+    }
+    .bento-stat-subtext {
+        font-size: 0.65rem !important;
+    }
+
+    /* Tables */
+    .table-responsive {
+        border-radius: 16px !important;
+        margin-bottom: 0 !important;
+    }
+    .table td, .table th {
+        padding: 8px 10px !important;
+        font-size: 0.76rem !important;
+        white-space: nowrap;
+    }
+    .table td.col-wrap {
+        white-space: normal !important;
+    }
+
+    /* Segmented filter pills (e.g. Chart tabs) */
+    .btn-chart-tab {
+        padding: 5px 9px !important;
+        font-size: 0.68rem !important;
+    }
+
+    /* All Files Capsule items on mobile */
+    .file-capsule-item {
+        padding: 8px 12px !important;
+        border-radius: 16px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Filter Nav Pills (e.g. in Jadwal) */
+    .filter-nav-group {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        padding-bottom: 4px;
+    }
+    .filter-nav-pill {
+        padding: 6px 12px !important;
+        font-size: 0.74rem !important;
+    }
 }

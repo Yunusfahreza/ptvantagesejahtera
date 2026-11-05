@@ -69,54 +69,56 @@ $user = Auth::user();
                 </div>
             </div>
 
-            <!-- Horizontal Gantt Timeline Container -->
-            <div class="p-3 rounded-4 mb-2" style="background: rgba(248, 250, 252, 0.9); border: 1.5px solid rgba(226, 232, 240, 0.9);">
-                <!-- Time Markers Axis -->
-                <div class="d-flex justify-content-between small fw-bold mb-3 pb-2" style="border-bottom: 1.5px dashed rgba(203, 213, 225, 0.8); color: var(--slate-tertiary); font-size: 0.75rem;">
-                    <span>07:00</span>
-                    <span>09:00</span>
-                    <span>11:00</span>
-                    <span>13:00</span>
-                    <span>15:00</span>
-                </div>
-
-                <!-- Gantt Lanes with Dark Capsule Bars & Teacher Avatars -->
-                <div class="d-flex flex-column gap-3">
-                    <!-- Lane 1: Matematika -->
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
-                            Matematika
-                        </span>
-                        <div class="flex-grow-1 position-relative">
-                            <div class="gantt-capsule-bar w-auto" style="margin-left: 6%; max-width: 82%;">
-                                <span>2 Jam &bull; Eksponen & Logaritma</span>
-                                <span class="gantt-avatar-pill" title="Dra. Siti Rahmawati">SR</span>
-                            </div>
-                        </div>
+            <!-- Horizontal Gantt Timeline Container (Fully responsive with touch swipe) -->
+            <div class="gantt-timeline-container p-3 rounded-4 mb-2" style="background: rgba(248, 250, 252, 0.9); border: 1.5px solid rgba(226, 232, 240, 0.9);">
+                <div class="gantt-timeline-inner">
+                    <!-- Time Markers Axis -->
+                    <div class="d-flex justify-content-between small fw-bold mb-3 pb-2" style="border-bottom: 1.5px dashed rgba(203, 213, 225, 0.8); color: var(--slate-tertiary); font-size: 0.75rem;">
+                        <span>07:00</span>
+                        <span>09:00</span>
+                        <span>11:00</span>
+                        <span>13:00</span>
+                        <span>15:00</span>
                     </div>
 
-                    <!-- Lane 2: Fisika -->
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
-                            Fisika
-                        </span>
-                        <div class="flex-grow-1 position-relative">
-                            <div class="gantt-capsule-bar w-auto" style="margin-left: 30%; max-width: 65%; background: #1e293b;">
-                                <span>2 Jam &bull; Gerak Lurus Beraturan</span>
-                                <span class="gantt-avatar-pill" title="Ahmad Fauzi, M.Pd">AF</span>
+                    <!-- Gantt Lanes with Dark Capsule Bars & Teacher Avatars -->
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Lane 1: Matematika -->
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
+                                Matematika
+                            </span>
+                            <div class="flex-grow-1 position-relative">
+                                <div class="gantt-capsule-bar w-auto" style="margin-left: 6%; max-width: 82%;">
+                                    <span>2 Jam &bull; Eksponen & Logaritma</span>
+                                    <span class="gantt-avatar-pill" title="Dra. Siti Rahmawati">SR</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Lane 3: B. Indonesia -->
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
-                            B. Indonesia
-                        </span>
-                        <div class="flex-grow-1 position-relative">
-                            <div class="gantt-capsule-bar w-auto" style="margin-left: 55%; max-width: 42%;">
-                                <span>1.5 Jam &bull; Teks Laporan Observasi</span>
-                                <span class="gantt-avatar-pill" title="Nurul Hidayah, S.Pd">NH</span>
+                        <!-- Lane 2: Fisika -->
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
+                                Fisika
+                            </span>
+                            <div class="flex-grow-1 position-relative">
+                                <div class="gantt-capsule-bar w-auto" style="margin-left: 30%; max-width: 65%; background: #1e293b;">
+                                    <span>2 Jam &bull; Gerak Lurus Beraturan</span>
+                                    <span class="gantt-avatar-pill" title="Ahmad Fauzi, M.Pd">AF</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lane 3: B. Indonesia -->
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small fw-bold text-truncate" style="width: 85px; flex-shrink: 0; color: var(--slate-primary); font-size: 0.78rem;">
+                                B. Indonesia
+                            </span>
+                            <div class="flex-grow-1 position-relative">
+                                <div class="gantt-capsule-bar w-auto" style="margin-left: 55%; max-width: 42%;">
+                                    <span>1.5 Jam &bull; Teks Laporan Observasi</span>
+                                    <span class="gantt-avatar-pill" title="Nurul Hidayah, S.Pd">NH</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,7 +363,7 @@ $user = Auth::user();
                     </span>
                 </div>
 
-                <div class="d-flex align-items-center gap-4">
+                <div class="d-flex flex-wrap align-items-center gap-2 gap-sm-4">
                     <div class="d-flex align-items-center gap-2">
                         <span class="small" style="color: #94a3b8; font-size: 0.72rem;">Total Siswa:</span>
                         <strong class="text-white" style="font-size: 0.88rem;">36 Siswa</strong>
