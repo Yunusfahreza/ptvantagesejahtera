@@ -32,8 +32,8 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
     <div class="ambient-softbox"></div>
 </div>
 
-<div class="container min-vh-100 d-flex align-items-center justify-content-center py-5" style="position: relative; z-index: 10;">
-    <div class="w-100" style="max-width: 440px;">
+<div class="container min-vh-100 d-flex align-items-center justify-content-center py-4 py-lg-5" style="position: relative; z-index: 10;">
+    <div class="w-100" style="max-width: 1180px;">
         <?php foreach ($pesan as $p): ?>
             <div class="alert alert-<?= e($p['tipe']) ?> alert-dismissible fade show border-0 shadow-sm mb-4" role="alert" style="border-radius: 20px;">
                 <span><?= e($p['pesan']) ?></span>

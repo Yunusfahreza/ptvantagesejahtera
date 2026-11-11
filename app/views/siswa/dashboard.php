@@ -198,13 +198,12 @@ $user = Auth::user();
 
                 <!-- Video Thumbnail / 3D Wave Visual -->
                 <div class="position-relative rounded-4 overflow-hidden mb-3" style="height: 120px; background: #000000; border: 1px solid rgba(255, 255, 255, 0.2);">
-                    <video id="dashboardMiniVideo" loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover;" poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://img.youtube.com/vi/-zUmvpkhvW8/hqdefault.jpg" alt="Video Thumbnail"
+                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: transform 0.3s ease;">
                     
                     <div id="dashboardVideoOverlay" class="position-absolute inset-0 d-flex align-items-center justify-content-center"
-                         style="top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.35); cursor: pointer;"
-                         onclick="togglePlayDashboardVideo()">
+                         style="top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.4); cursor: pointer;"
+                         data-bs-toggle="modal" data-bs-target="#fullscreenVideoModal">
                         <div class="rounded-circle d-flex align-items-center justify-content-center"
                              style="width: 44px; height: 44px; background: #ffffff; color: #0f172a; box-shadow: 0 4px 14px rgba(0,0,0,0.4);">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -485,11 +484,11 @@ $user = Auth::user();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
             </div>
 
-            <div class="rounded-4 overflow-hidden mb-3" style="width: 100%; height: 380px; background: #000000; box-shadow: var(--shadow-luxury-card); border: 2px solid #ffffff;">
-                <video id="modalVideoElement" controls playsinline style="width: 100%; height: 100%; object-fit: contain;">
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                    Browser tidak mendukung video HTML5.
-                </video>
+            <div class="rounded-4 overflow-hidden mb-3 ratio ratio-16x9" style="background: #000000; box-shadow: var(--shadow-luxury-card); border: 2px solid #ffffff;">
+                <iframe id="modalYoutubeFrame" src="https://www.youtube.com/embed/-zUmvpkhvW8?enablejsapi=1" title="Konsep Eksponen & Bentuk Akar"
+                        class="w-100 h-100" style="border: 0;"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
@@ -505,35 +504,15 @@ $user = Auth::user();
 </div>
 
 <script>
-    const miniVideo = document.getElementById('dashboardMiniVideo');
-    const overlay = document.getElementById('dashboardVideoOverlay');
-    const modalVideo = document.getElementById('modalVideoElement');
     const videoModal = document.getElementById('fullscreenVideoModal');
+    const iframeVideo = document.getElementById('modalYoutubeFrame');
 
-    function togglePlayDashboardVideo() {
-        if (!miniVideo) return;
-        if (miniVideo.paused) {
-            miniVideo.play();
-            if (overlay) overlay.style.opacity = '0';
-        } else {
-            miniVideo.pause();
-            if (overlay) overlay.style.opacity = '1';
-        }
-    }
-
-    if (miniVideo) {
-        miniVideo.addEventListener('play', () => { if (overlay) overlay.style.opacity = '0'; });
-        miniVideo.addEventListener('pause', () => { if (overlay) overlay.style.opacity = '1'; });
-    }
-
-    if (videoModal && modalVideo) {
-        videoModal.addEventListener('shown.bs.modal', () => {
-            if (miniVideo && !miniVideo.paused) miniVideo.pause();
-            modalVideo.currentTime = miniVideo ? miniVideo.currentTime : 0;
-            modalVideo.play();
-        });
+    if (videoModal && iframeVideo) {
         videoModal.addEventListener('hidden.bs.modal', () => {
-            modalVideo.pause();
+            // Stop video when modal closes by resetting src
+            const currentSrc = iframeVideo.src;
+            iframeVideo.src = '';
+            iframeVideo.src = currentSrc;
         });
     }
 </script>
