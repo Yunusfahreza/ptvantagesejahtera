@@ -14,6 +14,16 @@ use App\Models\Video;
  */
 final class VideoSiswaController extends Controller
 {
+    public function daftarSemua(): void
+    {
+        $kelasId = $this->kelasSiswa();
+
+        $this->render('siswa/video/semua', [
+            'judul' => 'Semua Video Pembelajaran',
+            'data'  => (new Video())->untukKelas($kelasId),
+        ]);
+    }
+
     public function index(string $id): void
     {
         $kelasId  = $this->kelasSiswa();

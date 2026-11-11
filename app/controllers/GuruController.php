@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Auth;
 use App\Core\Controller;
+use App\Models\GoogleMeet;
 use App\Models\Kuis;
 use App\Models\Materi;
 use App\Models\Pengampu;
@@ -25,6 +26,7 @@ final class GuruController extends Controller
             'belum_dinilai'  => (new Tugas())->pengumpulanBelumDinilai($guruId),
             'tugas_mendatang'=> (new Tugas())->mendatangMilikGuru($guruId),
             'kuis_mendatang' => (new Kuis())->mendatangMilikGuru($guruId),
+            'meet_aktif'     => (new GoogleMeet())->aktifMilikGuru($guruId, 3),
         ]);
     }
 

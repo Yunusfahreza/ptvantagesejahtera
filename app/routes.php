@@ -71,6 +71,9 @@ $router->get('/admin/jadwal',         'JadwalController@index',  ['admin']);
 $router->post('/admin/jadwal/simpan', 'JadwalController@simpan', ['admin']);
 $router->post('/admin/jadwal/hapus',  'JadwalController@hapus',  ['admin']);
 
+$router->get('/admin/meet',           'MeetAdminController@index', ['admin']);
+$router->post('/admin/meet/hapus',    'MeetAdminController@hapus', ['admin']);
+
 // --- Guru ----------------------------------------------------------------
 
 $router->get('/guru',       'GuruController@dashboard',   ['guru']);
@@ -91,6 +94,13 @@ $router->get('/guru/video/form/{id}',  'VideoGuruController@form',   ['guru']);
 $router->post('/guru/video/simpan',    'VideoGuruController@simpan', ['guru']);
 $router->post('/guru/video/hapus',     'VideoGuruController@hapus',  ['guru']);
 $router->get('/guru/video/stream/{id}','VideoGuruController@stream', ['guru']);
+
+$router->get('/guru/meet',             'MeetGuruController@index',   ['guru']);
+$router->get('/guru/meet/form',        'MeetGuruController@form',    ['guru']);
+$router->get('/guru/meet/form/{id}',   'MeetGuruController@form',    ['guru']);
+$router->post('/guru/meet/simpan',     'MeetGuruController@simpan',  ['guru']);
+$router->post('/guru/meet/status',     'MeetGuruController@status',  ['guru']);
+$router->post('/guru/meet/hapus',      'MeetGuruController@hapus',   ['guru']);
 
 $router->get('/guru/absensi',        'AbsensiGuruController@index',  ['guru']);
 $router->post('/guru/absensi/simpan','AbsensiGuruController@simpan', ['guru']);
@@ -136,9 +146,12 @@ $router->get('/siswa/materi/{id}',       'MateriSiswaController@index', ['siswa'
 $router->get('/siswa/materi/unduh/{id}', 'MateriSiswaController@unduh', ['siswa']);
 $router->get('/siswa/materi/lihat/{id}', 'MateriSiswaController@lihat', ['siswa']);
 
+$router->get('/siswa/video',             'VideoSiswaController@daftarSemua', ['siswa']);
 $router->get('/siswa/video/{id}',        'VideoSiswaController@index',  ['siswa']);
 $router->get('/siswa/video/tonton/{id}', 'VideoSiswaController@tonton', ['siswa']);
 $router->get('/siswa/video/stream/{id}', 'VideoSiswaController@stream', ['siswa']);
+
+$router->get('/siswa/meet', 'MeetSiswaController@index', ['siswa']);
 
 $router->get('/siswa/absensi', 'AbsensiSiswaController@index', ['siswa']);
 

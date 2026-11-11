@@ -26,6 +26,7 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="csrf-token" content="<?= e(Csrf::token()) ?>">
     <meta name="theme-color" content="#edf2f7">
     <title><?= e($judul ?? Config::get('app.nama')) ?></title>
@@ -177,15 +178,33 @@ $cssVer  = is_file($cssPath) ? filemtime($cssPath) : time();
 
             <!-- Right Side: Floating Control Capsules -->
             <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <!-- Video Call / Pembelajaran Pill (Dark Capsule like image) -->
+                <!-- Live Meet / Video Materi Pill (Dark Capsule) -->
                 <?php if ($user !== null): ?>
-                    <a href="<?= e(url('/' . ($peran ?? 'siswa') . '/video')) ?>" class="control-capsule-btn control-capsule-dark d-none d-md-inline-flex" title="Video Pembelajaran">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="23 7 16 12 23 17 23 7"/>
-                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                        </svg>
-                        <span>Video Materi</span>
+                    <?php
+                    $topMeetPath = match ($peran ?? 'siswa') {
+                        'admin' => '/admin/meet',
+                        'guru'  => '/guru/meet',
+                        default => '/siswa/meet',
+                    };
+                    $topVideoPath = match ($peran ?? 'siswa') {
+                        'admin' => '/admin/jadwal',
+                        'guru'  => '/guru/video',
+                        default => '/siswa/video',
+                    };
+                    ?>
+                    <a href="<?= e(url($topMeetPath)) ?>" class="control-capsule-btn d-none d-lg-inline-flex" title="Ruang Google Meet">
+                        <span style="width: 7px; height: 7px; border-radius: 50%; background: #059669; box-shadow: 0 0 6px rgba(5,150,105,0.6);"></span>
+                        <span>Google Meet</span>
                     </a>
+                    <?php if (($peran ?? '') !== 'admin'): ?>
+                        <a href="<?= e(url($topVideoPath)) ?>" class="control-capsule-btn control-capsule-dark d-none d-md-inline-flex" title="Video Pembelajaran">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="23 7 16 12 23 17 23 7"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                            <span>Video Materi</span>
+                        </a>
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <!-- Time & Weather Widget Capsule -->

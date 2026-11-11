@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\Auth;
 use App\Core\Controller;
 use App\Core\HttpException;
+use App\Models\GoogleMeet;
 use App\Models\Kuis;
 use App\Models\Materi;
 use App\Models\Pengampu;
@@ -28,6 +29,7 @@ final class SiswaController extends Controller
             'kuis_terbuka'   => (new Kuis())->terbukaUntukSiswa($siswaId, $kelasId),
             'pengumuman'     => (new Pengumuman())->terbaruUntukKelas($kelasId, 5),
             'jumlah_materi'  => (new Materi())->hitungUntukKelas($kelasId),
+            'meet_aktif'     => (new GoogleMeet())->aktifUntukKelas($kelasId, 2),
         ]);
     }
 

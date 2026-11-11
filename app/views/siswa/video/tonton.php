@@ -1,3 +1,13 @@
+<?php
+$linkYoutubeAsli = null;
+if ($video['tipe'] === 'youtube' && !empty($video['url_embed'])) {
+    if (preg_match('#/embed/([a-zA-Z0-9_-]{11})#', (string) $video['url_embed'], $ytMatch)) {
+        $linkYoutubeAsli = 'https://www.youtube.com/watch?v=' . $ytMatch[1];
+    } else {
+        $linkYoutubeAsli = (string) $video['url_embed'];
+    }
+}
+?>
 <div class="mb-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb page-breadcrumb mb-1">
@@ -8,9 +18,19 @@
     </nav>
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
         <h1 class="page-title mb-0"><?= e($video['judul']) ?></h1>
-        <a class="btn btn-outline-secondary btn-sm px-3 py-1.5" href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>">
-            &larr; Kembali ke Daftar
-        </a>
+        <div class="d-flex flex-wrap gap-2">
+            <?php if ($linkYoutubeAsli !== null): ?>
+                <a class="btn btn-outline-danger btn-sm px-3 py-1.5 d-inline-flex align-items-center gap-1.5 fw-semibold" href="<?= e($linkYoutubeAsli) ?>" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    <span>Buka di YouTube</span>
+                </a>
+            <?php endif; ?>
+            <a class="btn btn-outline-secondary btn-sm px-3 py-1.5" href="<?= e(url('/siswa/video/' . $video['pengampu_id'])) ?>">
+                &larr; Kembali ke Daftar
+            </a>
+        </div>
     </div>
 </div>
 
@@ -20,10 +40,12 @@
             <div class="ratio ratio-16x9" style="background: #000000; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
                 <?php if ($video['tipe'] === 'youtube'): ?>
                     <iframe src="<?= e($video['url_embed']) ?>" title="<?= e($video['judul']) ?>"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                 <?php elseif ($video['tipe'] === 'gdrive'): ?>
                     <iframe src="<?= e($video['url_embed']) ?>" title="<?= e($video['judul']) ?>"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen></iframe>
                 <?php elseif ($video['tipe'] === 'upload'): ?>
                     <video controls controlsList="nodownload" preload="metadata" class="w-100 h-100">
@@ -35,16 +57,22 @@
             
             <div class="card-body p-4 p-md-5">
                 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom gap-2" style="border-color: rgba(226, 232, 240, 0.8) !important;">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
                         <span class="badge px-2.5 py-1.5 fw-bold" style="background: rgba(37, 99, 235, 0.08); color: var(--accent-sapphire); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 8px;">
-                            <?= e($video['mapel_nama']) ?> (<?= e($video['mapel_kode']) ?>)
+                            <?= e($video['mapel_nama']) ?><?= !empty($video['mapel_kode']) ? ' (' . e($video['mapel_kode']) . ')' : '' ?>
                         </span>
                         <span class="small fw-semibold" style="color: var(--slate-secondary);">Pengajar: <?= e($video['guru_nama']) ?></span>
                     </div>
-                    <div class="small fw-semibold" style="color: var(--slate-muted); font-size: 0.78rem;">
-                        Diunggah: <?= e(tanggal_id($video['created_at'])) ?>
+                    <div class="small fw-semibold d-inline-flex align-items-center gap-2" style="color: var(--slate-muted); font-size: 0.78rem;">
+                        <span>Diunggah: <?= e(tanggal_id($video['created_at'] ?? null)) ?></span>
                         <?php if (($video['durasi'] ?? '') !== ''): ?>
-                            &bull; â ±ï¸  <?= e($video['durasi']) ?>
+                            <span>&bull;</span>
+                            <span class="d-inline-flex align-items-center gap-1">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                <?= e($video['durasi']) ?>
+                            </span>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -66,14 +66,35 @@ final class Video extends Model
     }
 
     /**
+     * Semua video dari seluruh mapel di kelas siswa tersebut.
+     *
+     * @return list<array>
+     */
+    public function untukKelas(int $kelasId): array
+    {
+        return $this->semua(
+            'SELECT v.id, v.judul, v.deskripsi, v.tipe, v.file, v.file_asli,
+                    v.url_embed, v.durasi, v.created_at, v.pengampu_id,
+                    m.nama AS mapel_nama, m.kode AS mapel_kode, g.nama AS guru_nama
+               FROM video_pembelajaran v
+               JOIN pengampu p ON p.id = v.pengampu_id
+               JOIN mapel m    ON m.id = p.mapel_id
+               JOIN users g    ON g.id = p.guru_id
+              WHERE p.kelas_id = ?
+           ORDER BY v.created_at DESC',
+            [$kelasId]
+        );
+    }
+
+    /**
      * Ambil video HANYA kalau pengampunya ada di kelas siswa tersebut.
      */
     public function cariUntukKelas(int $id, int $kelasId): ?array
     {
         return $this->satu(
             'SELECT v.id, v.judul, v.deskripsi, v.tipe, v.file, v.file_asli,
-                    v.url_embed, v.durasi, v.pengampu_id,
-                    k.nama AS kelas_nama, m.nama AS mapel_nama, g.nama AS guru_nama
+                    v.url_embed, v.durasi, v.created_at, v.pengampu_id,
+                    k.nama AS kelas_nama, m.nama AS mapel_nama, m.kode AS mapel_kode, g.nama AS guru_nama
                FROM video_pembelajaran v
                JOIN pengampu p ON p.id = v.pengampu_id
                JOIN kelas k    ON k.id = p.kelas_id

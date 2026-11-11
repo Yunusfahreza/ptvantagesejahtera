@@ -38,9 +38,10 @@ ini_set('log_errors', '1');
 error_reporting(E_ALL);
 
 // Header keamanan dasar.
+// strict-origin-when-cross-origin diperlukan agar embed YouTube menerima header Referer & tidak memicu Error 153.
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
-header('Referrer-Policy: same-origin');
+header('Referrer-Policy: strict-origin-when-cross-origin');
 
 Auth::mulaiSesi();
 

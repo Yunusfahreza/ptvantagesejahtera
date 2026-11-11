@@ -36,6 +36,7 @@ DROP TABLE IF EXISTS `kalender_akademik`;
 DROP TABLE IF EXISTS `absensi`;
 DROP TABLE IF EXISTS `jadwal`;
 DROP TABLE IF EXISTS `perpustakaan`;
+DROP TABLE IF EXISTS `google_meet`;
 DROP TABLE IF EXISTS `video_pembelajaran`;
 
 -- Hapus tabel lama
@@ -375,6 +376,24 @@ CREATE TABLE `kalender_akademik` (
     KEY `idx_kalender_tahun` (`tahun_ajaran_id`),
     CONSTRAINT `fk_kalender_tahun` FOREIGN KEY (`tahun_ajaran_id`)
         REFERENCES `tahun_ajaran` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `google_meet` (
+    `id`           INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `pengampu_id`  INT UNSIGNED NOT NULL,
+    `judul`        VARCHAR(150) NOT NULL,
+    `deskripsi`    TEXT NULL,
+    `link_meet`    VARCHAR(255) NOT NULL,
+    `tanggal`      DATE NOT NULL,
+    `jam_mulai`    TIME NOT NULL,
+    `jam_selesai`  TIME NOT NULL,
+    `status`       ENUM('terjadwal','berlangsung','selesai') NOT NULL DEFAULT 'terjadwal',
+    `created_at`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `idx_meet_pengampu` (`pengampu_id`),
+    KEY `idx_meet_tanggal` (`tanggal`, `jam_mulai`),
+    CONSTRAINT `fk_meet_pengampu` FOREIGN KEY (`pengampu_id`)
+        REFERENCES `pengampu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -1523,6 +1542,18 @@ INSERT INTO `pencapaian` (`siswa_id`, `tipe`, `label`, `deskripsi`, `ikon`, `dip
     (141, 'tepat_waktu',   'Pengumpul Tepat Waktu', 'Mengumpulkan seluruh laporan praktikum tepat waktu', '⏰', '2026-10-17 09:15:00'),
     (141, 'nilai_sempurna', 'Nilai Sempurna', 'Mendapatkan nilai 100 pada kuis Fisika Modern XII-IPA', '💯', '2026-10-12 08:35:00'),
     (143, 'rajin_kuis',    'Rajin Latihan', 'Telah mengerjakan seluruh kuis persiapan ujian', '📝', '2026-10-21 10:00:00');
+
+-- =====================================================================
+-- GOOGLE MEET (SESI TATAP MUKA DARING)
+-- =====================================================================
+INSERT INTO `google_meet` (`pengampu_id`, `judul`, `deskripsi`, `link_meet`, `tanggal`, `jam_mulai`, `jam_selesai`, `status`) VALUES
+    (38, 'Klinik Soal Persiapan Ujian Akhir: Integral & Limit', 'Pembahasan soal HOTS limit fungsi trigonometri dan integral tentu bersama Bu Siti. Siapkan buku latihan.', 'https://meet.google.com/sman-xipa-mtk', '2026-11-12', '08:00:00', '09:30:00', 'berlangsung'),
+    (40, 'Academic Speaking Practice: Analytical Exposition Debate', 'Simulasi argumen tim pro & kontra serta review tata bahasa sebelum penilaian lisan pekan depan.', 'https://meet.google.com/bing-xipa-deb', '2026-11-13', '10:00:00', '11:30:00', 'terjadwal'),
+    (41, 'Bedah Materi Gelombang Elektromagnetik & Induksi Faraday', 'Sesi tanya jawab konsep gaya gerak listrik induksi beserta simulasi PhET virtual.', 'https://meet.google.com/fis-xipa-gel', '2026-11-10', '07:30:00', '09:00:00', 'selesai'),
+    (28, 'Workshop Basis Data Relasional & Normalisasi Tabel MySQL', 'Praktik langsung merancang ERD hingga 3NF menggunakan studi kasus sistem akademik sekolah.', 'https://meet.google.com/info-xiipa-db', '2026-11-12', '09:00:00', '10:30:00', 'berlangsung'),
+    (26, 'Diskusi Interaktif Mekanisme Transpor Membran Sel', 'Review hasil pengamatan difusi-osmosis dan kuis interaktif singkat via Google Meet.', 'https://meet.google.com/bio-xiipa-sel', '2026-11-14', '13:00:00', '14:15:00', 'terjadwal'),
+    (1,  'Pendalaman Konsep Bilangan Berpangkat & Bentuk Akar', 'Penjelasan sifat eksponen pecahan dan latihan merasionalkan penyebut secara langsung.', 'https://meet.google.com/mtk-xone-exp', '2026-11-12', '10:30:00', '12:00:00', 'berlangsung'),
+    (4,  'Pembahasan Soal Gerak Lurus Berubah Beraturan (GLBB)', 'Analisis grafik v-t dan penerapan hukum Newton pada bidang miring.', 'https://meet.google.com/fis-xone-glb', '2026-11-13', '08:30:00', '10:00:00', 'terjadwal');
 
 -- =====================================================================
 -- Selesai. Seluruh data skema, guru, siswa, presensi, dan kuis telah dimuat.

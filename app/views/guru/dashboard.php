@@ -9,7 +9,13 @@
         <p class="page-subtitle">Pusat kendali aktivitas belajar-mengajar, monitoring materi, dan penilaian tugas siswa</p>
     </div>
     
-    <div class="d-flex align-items-center gap-2">
+    <div class="d-flex flex-wrap align-items-center gap-2">
+        <a href="<?= e(url('/guru/meet/form')) ?>" class="btn btn-outline-success d-inline-flex align-items-center gap-2 px-3 py-2 fw-semibold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2" ry="2"/>
+            </svg>
+            <span>Jadwalkan Meet</span>
+        </a>
         <a href="<?= e(url('/guru/tugas')) ?>" class="btn btn-primary d-inline-flex align-items-center gap-2 px-3.5 py-2 fw-semibold shadow-sm">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
@@ -135,7 +141,9 @@
                 <?php if ($belum_dinilai === []): ?>
                     <div class="empty-state-box p-4 text-center">
                         <div class="empty-state-icon mx-auto" style="width: 44px; height: 44px; margin-bottom: 0.5rem;">
-                            âœ“
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
                         </div>
                         <h6 class="fw-bold mb-1" style="color: var(--slate-primary);">Semua Tugas Telah Dinilai</h6>
                         <p class="small text-muted mb-0">Tidak ada pengumpulan tugas siswa yang tertunda saat ini.</p>
@@ -202,7 +210,9 @@
                 <?php if ($tugas_mendatang === [] && $kuis_mendatang === []): ?>
                     <div class="empty-state-box p-4 text-center">
                         <div class="empty-state-icon mx-auto" style="width: 44px; height: 44px; margin-bottom: 0.5rem;">
-                            â˜•
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
                         </div>
                         <h6 class="fw-bold mb-1" style="color: var(--slate-primary);">Tidak Ada Jadwal Mendatang</h6>
                         <p class="small text-muted mb-0">Belum ada tenggat tugas atau kuis yang dijadwalkan dalam waktu dekat.</p>
@@ -261,5 +271,60 @@
                 <?php endif; ?>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Panel Google Meet Guru -->
+<div class="card shadow-sm border-0 mt-4">
+    <div class="card-header py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2">
+            <div class="squircle-icon squircle-icon-green" style="width: 30px; height: 30px; border-radius: 8px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2" ry="2"/>
+                </svg>
+            </div>
+            <span class="fw-bold" style="color: var(--slate-primary); font-size: 0.94rem;">Sesi Google Meet Aktif & Terjadwal</span>
+        </div>
+        <a href="<?= e(url('/guru/meet')) ?>" class="small fw-bold text-decoration-none" style="color: var(--accent-sapphire);">
+            Kelola Semua Sesi &rarr;
+        </a>
+    </div>
+    <div class="card-body p-3.5">
+        <?php if (empty($meet_aktif)): ?>
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 py-2 px-1">
+                <span class="small text-muted">Belum ada sesi Google Meet yang dijadwalkan untuk kelas Anda saat ini.</span>
+                <a href="<?= e(url('/guru/meet/form')) ?>" class="btn btn-sm btn-outline-success rounded-pill px-3">+ Buat Jadwal Meet</a>
+            </div>
+        <?php else: ?>
+            <div class="row g-3">
+                <?php foreach ($meet_aktif as $gm): ?>
+                    <div class="col-12 col-md-4">
+                        <div class="p-3 rounded-3 h-100 d-flex flex-column justify-content-between"
+                             style="background: rgba(255, 255, 255, 0.88); border: 1.5px solid rgba(226, 232, 240, 0.9);">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge px-2 py-0.5 fw-bold" style="background: rgba(15, 23, 42, 0.06); color: var(--slate-primary); font-size: 0.7rem;">
+                                        <?= e($gm['kelas_nama']) ?> &bull; <?= e($gm['mapel_kode']) ?>
+                                    </span>
+                                    <?php if ($gm['status'] === 'berlangsung'): ?>
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle" style="font-size: 0.68rem;">LIVE</span>
+                                    <?php else: ?>
+                                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle" style="font-size: 0.68rem;">Terjadwal</span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="fw-bold mb-1" style="color: var(--slate-primary); font-size: 0.9rem;"><?= e($gm['judul']) ?></div>
+                                <div class="small mb-3" style="color: var(--slate-tertiary); font-size: 0.75rem;">
+                                    <?= e(tanggal_id($gm['tanggal'], 'd M Y')) ?> &bull; <?= e(substr((string) $gm['jam_mulai'], 0, 5)) ?>&ndash;<?= e(substr((string) $gm['jam_selesai'], 0, 5)) ?> WIB
+                                </div>
+                            </div>
+                            <a href="<?= e($gm['link_meet']) ?>" target="_blank" rel="noopener noreferrer"
+                               class="btn btn-sm <?= $gm['status'] === 'berlangsung' ? 'btn-success' : 'btn-outline-primary' ?> w-100 rounded-pill fw-semibold">
+                                Buka Google Meet &nearr;
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </div>

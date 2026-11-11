@@ -21,7 +21,7 @@ use App\Core\Config;
             Sistem Pembelajaran Digital Terintegrasi & Interaktif
         </h1>
         <p class="mb-4" style="color: var(--slate-secondary); font-size: 0.96rem; line-height: 1.6; max-width: 580px;">
-            Platform resmi <strong style="color: var(--slate-primary);">LMS SMAN 10 Garut</strong> untuk memfasilitasi modul pembelajaran digital, penugasan mandiri, evaluasi CBT, serta pemantauan rekapitulasi nilai dan presensi akademik secara real-time.
+            Platform resmi <strong style="color: var(--slate-primary);">LMS SMAN 10 Garut</strong> untuk memfasilitasi modul pembelajaran digital, kelas tatap muka Google Meet, penugasan mandiri, evaluasi CBT, serta pemantauan nilai dan presensi secara real-time.
         </p>
 
         <!-- Bento Feature Grid (4 Kartu Fitur Kunci LMS) -->

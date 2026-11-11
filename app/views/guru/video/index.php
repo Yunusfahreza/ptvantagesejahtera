@@ -48,7 +48,11 @@
                 <?php if ($data === []): ?>
                     <tr>
                         <td colspan="6" class="text-center py-5" style="color: var(--slate-muted);">
-                            <div class="mb-2">ðŸŽ¬</div>
+                            <div class="mb-2 opacity-50">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                                </svg>
+                            </div>
                             Belum ada video pembelajaran. Klik tombol "Tambah Video Baru" untuk mengunggah materi pertama Anda.
                         </td>
                     </tr>
@@ -84,8 +88,15 @@
                             <div class="small" style="color: var(--slate-muted); font-size: 0.74rem;"><?= e($v['mapel_nama']) ?></div>
                         </td>
                         <td>
-                            <span class="small fw-semibold" style="color: var(--slate-secondary);">
-                                <?= ($v['durasi'] ?? '') !== '' ? 'â ±ï¸  ' . e($v['durasi']) : '<span class="text-muted">&mdash;</span>' ?>
+                            <span class="small fw-semibold d-inline-flex align-items-center gap-1" style="color: var(--slate-secondary);">
+                                <?php if (($v['durasi'] ?? '') !== ''): ?>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                    <?= e($v['durasi']) ?>
+                                <?php else: ?>
+                                    <span class="text-muted">&mdash;</span>
+                                <?php endif; ?>
                             </span>
                         </td>
                         <td class="small" style="color: var(--slate-muted); font-size: 0.74rem;">
